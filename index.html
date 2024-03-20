@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Slideshow</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./index.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <style>
+        .hidden {
+            display: none;
+        }
+
+        .u-pl-29.active p {
+            color: #1A91F8;
+        }
+
+        .icon-div {
+            border: 1px solid #A0A0A0;
+            background-color: white;
+        }
+
+        .u-pl-29.active span {
+            color: #434343 !important;
+        }
+
+        .u-pl-29.active .icon-div {
+            background-color: #FF896E;
+            border: 1px solid transparent;
+        }
+
+        .u-pl-29 .icon-div svg {
+            fill: #A6A6A6;
+        }
+
+        .u-pl-29.active .icon-div svg {
+            fill: white !important;
+        }
+
+        .u-pl-29.active:before {
+            background-color: #70AAED;
+        }
+
+        .border1:before,
+        .border2:before {
+            content: "";
+            width: 2px;
+            background-color: #A0A0A0;
+            left: 60px;
+            position: absolute;
+            height: 190px;
+            z-index: -1;
+        }
+
+        .slick-slider .element {
+            color: #fff;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 0px 10px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            font-size: 20px;
+        }
+
+        .slick-dots {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .slick-dots li button {
+            font-size: 0;
+            height: 15px;
+            width: 15px;
+            border-radius: 50%;
+            border: 1px solid lightgrey;
+            background-color: #DBDBDB;
+        }
+
+        .slick-active button {
+            background-color: #FF896E !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container hidden md:flex">
+        <div class="container-image">
+            <img id="currentImage" src="./Asset/bg-mobile.png" alt="mobile image" />
+        </div>
+        <div class="icon-image">
+            <div id="autochnages" onclick="changeImage(0)" class="u-flex line">
+                <h2 class="u-pl-29 flex gap-4 active cursor-pointer relative border1">
+                    <div class="h-[64px] w-[64px] min-w-[64px] rounded-full flex items-center justify-center icon-div">
+                        <svg width="31" height="20" viewBox="0 0 31 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M30.5819 1.60004V10.3273C30.5819 10.5443 30.4957 10.7524 30.3422 10.9059C30.1888 11.0593 29.9807 11.1455 29.7637 11.1455C29.5467 11.1455 29.3386 11.0593 29.1852 10.9059C29.0317 10.7524 28.9455 10.5443 28.9455 10.3273V3.57459L17.251 15.2691C17.0976 15.4224 16.8896 15.5084 16.6728 15.5084C16.456 15.5084 16.248 15.4224 16.0946 15.2691L11.2183 10.3941L1.97825 19.6328C1.82315 19.7773 1.61801 19.856 1.40604 19.8522C1.19408 19.8485 0.99184 19.7626 0.841935 19.6127C0.69203 19.4628 0.606162 19.2606 0.602422 19.0486C0.598683 18.8366 0.677362 18.6315 0.821886 18.4764L10.6401 8.65822C10.7935 8.50501 11.0014 8.41894 11.2183 8.41894C11.4351 8.41894 11.643 8.50501 11.7964 8.65822L16.6728 13.5332L27.7892 2.41822H21.0364C20.8194 2.41822 20.6113 2.33202 20.4579 2.17858C20.3045 2.02515 20.2183 1.81704 20.2183 1.60004C20.2183 1.38305 20.3045 1.17494 20.4579 1.0215C20.6113 0.868061 20.8194 0.78186 21.0364 0.78186H29.7637C29.9807 0.78186 30.1888 0.868061 30.3422 1.0215C30.4957 1.17494 30.5819 1.38305 30.5819 1.60004Z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p id="h1" class="text-[20px] font-semibold">Jano Apne Trading ka AndekhaSach</p>
+                        <span class="text-[#959595] text-[16px]">The Samco's unique engine analyzes your part trades &
+                            shows a hidden unseen insight from your past trade performance.</span>
+                    </div>
+                </h2>
+            </div>
+            <div onclick="changeImage(1)" class="u-flex">
+                <h2 class="u-pl-29 flex gap-4 cursor-pointer relative border1">
+                    <div class="h-[64px] w-[64px] min-w-[64px] rounded-full flex items-center justify-center icon-div">
+                        <svg width="31" height="20" viewBox="0 0 31 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M30.5819 1.60004V10.3273C30.5819 10.5443 30.4957 10.7524 30.3422 10.9059C30.1888 11.0593 29.9807 11.1455 29.7637 11.1455C29.5467 11.1455 29.3386 11.0593 29.1852 10.9059C29.0317 10.7524 28.9455 10.5443 28.9455 10.3273V3.57459L17.251 15.2691C17.0976 15.4224 16.8896 15.5084 16.6728 15.5084C16.456 15.5084 16.248 15.4224 16.0946 15.2691L11.2183 10.3941L1.97825 19.6328C1.82315 19.7773 1.61801 19.856 1.40604 19.8522C1.19408 19.8485 0.99184 19.7626 0.841935 19.6127C0.69203 19.4628 0.606162 19.2606 0.602422 19.0486C0.598683 18.8366 0.677362 18.6315 0.821886 18.4764L10.6401 8.65822C10.7935 8.50501 11.0014 8.41894 11.2183 8.41894C11.4351 8.41894 11.643 8.50501 11.7964 8.65822L16.6728 13.5332L27.7892 2.41822H21.0364C20.8194 2.41822 20.6113 2.33202 20.4579 2.17858C20.3045 2.02515 20.2183 1.81704 20.2183 1.60004C20.2183 1.38305 20.3045 1.17494 20.4579 1.0215C20.6113 0.868061 20.8194 0.78186 21.0364 0.78186H29.7637C29.9807 0.78186 30.1888 0.868061 30.3422 1.0215C30.4957 1.17494 30.5819 1.38305 30.5819 1.60004Z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p id="h1" class="text-[20px] font-semibold">Jano Apne Trading ka AndekhaSach</p>
+                        <span class="text-[#959595] text-[16px]">The Samco's unique engine analyzes your part trades &
+                            shows a hidden unseen insight from your past trade performance.</span>
+                    </div>
+                </h2>
+            </div>
+            <div onclick="changeImage(2)" class="u-flex">
+                <h2 class="u-pl-29 flex gap-4 cursor-pointer relative ">
+                    <div class="h-[64px] w-[64px] min-w-[64px] rounded-full flex items-center justify-center icon-div">
+                        <svg width="31" height="20" viewBox="0 0 31 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M30.5819 1.60004V10.3273C30.5819 10.5443 30.4957 10.7524 30.3422 10.9059C30.1888 11.0593 29.9807 11.1455 29.7637 11.1455C29.5467 11.1455 29.3386 11.0593 29.1852 10.9059C29.0317 10.7524 28.9455 10.5443 28.9455 10.3273V3.57459L17.251 15.2691C17.0976 15.4224 16.8896 15.5084 16.6728 15.5084C16.456 15.5084 16.248 15.4224 16.0946 15.2691L11.2183 10.3941L1.97825 19.6328C1.82315 19.7773 1.61801 19.856 1.40604 19.8522C1.19408 19.8485 0.99184 19.7626 0.841935 19.6127C0.69203 19.4628 0.606162 19.2606 0.602422 19.0486C0.598683 18.8366 0.677362 18.6315 0.821886 18.4764L10.6401 8.65822C10.7935 8.50501 11.0014 8.41894 11.2183 8.41894C11.4351 8.41894 11.643 8.50501 11.7964 8.65822L16.6728 13.5332L27.7892 2.41822H21.0364C20.8194 2.41822 20.6113 2.33202 20.4579 2.17858C20.3045 2.02515 20.2183 1.81704 20.2183 1.60004C20.2183 1.38305 20.3045 1.17494 20.4579 1.0215C20.6113 0.868061 20.8194 0.78186 21.0364 0.78186H29.7637C29.9807 0.78186 30.1888 0.868061 30.3422 1.0215C30.4957 1.17494 30.5819 1.38305 30.5819 1.60004Z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p id="h1" class="text-[20px] font-semibold">Jano Apne Trading ka AndekhaSach</p>
+                        <span class="text-[#959595] text-[16px]">The Samco's unique engine analyzes your part trades &
+                            shows a hidden unseen insight from your past trade performance.</span>
+                    </div>
+                </h2>
+            </div>
+            <div class=" u-pl-29 u-flex u-button">
+                <button class=" text-white bg-[#FF896E] px-6 py-4 text-center mt-4 rounded-md">Discover
+                    More</button>
+            </div>
+        </div>
+    </div>
+    <div class="md:hidden">
+        <div class="slick-slider">
+            <div class="element element-1 flex flex-col">
+                <img id="currentImage" src="./Asset/image14.webp" alt="mobile image" />
+                <h2 class=" flex flex-col gap-4 cursor-pointer relative justify-center items-center">
+                    <div
+                        class="h-[64px] w-[64px] min-w-[64px] rounded-full flex items-center justify-center bg-[#FF896E]">
+                        <svg width="31" height="20" viewBox="0 0 31 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M30.5819 1.60004V10.3273C30.5819 10.5443 30.4957 10.7524 30.3422 10.9059C30.1888 11.0593 29.9807 11.1455 29.7637 11.1455C29.5467 11.1455 29.3386 11.0593 29.1852 10.9059C29.0317 10.7524 28.9455 10.5443 28.9455 10.3273V3.57459L17.251 15.2691C17.0976 15.4224 16.8896 15.5084 16.6728 15.5084C16.456 15.5084 16.248 15.4224 16.0946 15.2691L11.2183 10.3941L1.97825 19.6328C1.82315 19.7773 1.61801 19.856 1.40604 19.8522C1.19408 19.8485 0.99184 19.7626 0.841935 19.6127C0.69203 19.4628 0.606162 19.2606 0.602422 19.0486C0.598683 18.8366 0.677362 18.6315 0.821886 18.4764L10.6401 8.65822C10.7935 8.50501 11.0014 8.41894 11.2183 8.41894C11.4351 8.41894 11.643 8.50501 11.7964 8.65822L16.6728 13.5332L27.7892 2.41822H21.0364C20.8194 2.41822 20.6113 2.33202 20.4579 2.17858C20.3045 2.02515 20.2183 1.81704 20.2183 1.60004C20.2183 1.38305 20.3045 1.17494 20.4579 1.0215C20.6113 0.868061 20.8194 0.78186 21.0364 0.78186H29.7637C29.9807 0.78186 30.1888 0.868061 30.3422 1.0215C30.4957 1.17494 30.5819 1.38305 30.5819 1.60004Z"
+                                fill="white" />
+                        </svg>
+                    </div>
+                    <div class="text-center">
+                        <p id="h1" class="text-[20px] font-semibold text-[#1A91F8]">Jano Apne Trading ka AndekhaSach</p>
+                        <span class="text-[#959595] text-[16px]">The Samco's unique engine analyzes your part trades &
+                            shows a hidden unseen insight from your past trade performance.</span>
+                    </div>
+                </h2>
+            </div>
+            <div class="element element-2 flex flex-col">
+                <img id="currentImage" src="./Asset/image11.webp" alt="mobile image" />
+                <h2 class=" flex flex-col gap-4 cursor-pointer relative justify-center items-center">
+                    <div
+                        class="h-[64px] w-[64px] min-w-[64px] rounded-full flex items-center justify-center bg-[#FF896E]">
+                        <svg width="31" height="20" viewBox="0 0 31 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M30.5819 1.60004V10.3273C30.5819 10.5443 30.4957 10.7524 30.3422 10.9059C30.1888 11.0593 29.9807 11.1455 29.7637 11.1455C29.5467 11.1455 29.3386 11.0593 29.1852 10.9059C29.0317 10.7524 28.9455 10.5443 28.9455 10.3273V3.57459L17.251 15.2691C17.0976 15.4224 16.8896 15.5084 16.6728 15.5084C16.456 15.5084 16.248 15.4224 16.0946 15.2691L11.2183 10.3941L1.97825 19.6328C1.82315 19.7773 1.61801 19.856 1.40604 19.8522C1.19408 19.8485 0.99184 19.7626 0.841935 19.6127C0.69203 19.4628 0.606162 19.2606 0.602422 19.0486C0.598683 18.8366 0.677362 18.6315 0.821886 18.4764L10.6401 8.65822C10.7935 8.50501 11.0014 8.41894 11.2183 8.41894C11.4351 8.41894 11.643 8.50501 11.7964 8.65822L16.6728 13.5332L27.7892 2.41822H21.0364C20.8194 2.41822 20.6113 2.33202 20.4579 2.17858C20.3045 2.02515 20.2183 1.81704 20.2183 1.60004C20.2183 1.38305 20.3045 1.17494 20.4579 1.0215C20.6113 0.868061 20.8194 0.78186 21.0364 0.78186H29.7637C29.9807 0.78186 30.1888 0.868061 30.3422 1.0215C30.4957 1.17494 30.5819 1.38305 30.5819 1.60004Z"
+                                fill="white" />
+                        </svg>
+
+                    </div>
+                    <div class="text-center">
+                        <p id="h1" class="text-[20px] font-semibold text-[#1A91F8]">Jano Apne Trading ka AndekhaSach</p>
+                        <span class="text-[#959595] text-[16px]">The Samco's unique engine analyzes your part trades &
+                            shows a hidden unseen insight from your past trade performance.</span>
+                    </div>
+                </h2>
+            </div>
+            <div class="element element-3 flex flex-col">
+                <img id="currentImage" src="./Asset/image13.webp" alt="mobile image" />
+                <h2 class=" flex flex-col gap-4 cursor-pointer relative justify-center items-center">
+                    <div
+                        class="h-[64px] w-[64px] min-w-[64px] rounded-full flex items-center justify-center bg-[#FF896E]">
+                        <svg width="31" height="20" viewBox="0 0 31 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M30.5819 1.60004V10.3273C30.5819 10.5443 30.4957 10.7524 30.3422 10.9059C30.1888 11.0593 29.9807 11.1455 29.7637 11.1455C29.5467 11.1455 29.3386 11.0593 29.1852 10.9059C29.0317 10.7524 28.9455 10.5443 28.9455 10.3273V3.57459L17.251 15.2691C17.0976 15.4224 16.8896 15.5084 16.6728 15.5084C16.456 15.5084 16.248 15.4224 16.0946 15.2691L11.2183 10.3941L1.97825 19.6328C1.82315 19.7773 1.61801 19.856 1.40604 19.8522C1.19408 19.8485 0.99184 19.7626 0.841935 19.6127C0.69203 19.4628 0.606162 19.2606 0.602422 19.0486C0.598683 18.8366 0.677362 18.6315 0.821886 18.4764L10.6401 8.65822C10.7935 8.50501 11.0014 8.41894 11.2183 8.41894C11.4351 8.41894 11.643 8.50501 11.7964 8.65822L16.6728 13.5332L27.7892 2.41822H21.0364C20.8194 2.41822 20.6113 2.33202 20.4579 2.17858C20.3045 2.02515 20.2183 1.81704 20.2183 1.60004C20.2183 1.38305 20.3045 1.17494 20.4579 1.0215C20.6113 0.868061 20.8194 0.78186 21.0364 0.78186H29.7637C29.9807 0.78186 30.1888 0.868061 30.3422 1.0215C30.4957 1.17494 30.5819 1.38305 30.5819 1.60004Z"
+                                fill="white" />
+                        </svg>
+
+                    </div>
+                    <div class="text-center">
+                        <p id="h1" class="text-[20px] font-semibold text-[#1A91F8]">Jano Apne Trading ka AndekhaSach</p>
+                        <span class="text-[#959595] text-[16px]">The Samco's unique engine analyzes your part trades &
+                            shows a hidden unseen insight from your past trade performance.</span>
+                    </div>
+                </h2>
+            </div>
+        </div>
+        <div class="text-center">
+            <button class="text-white bg-[#FF896E] px-6 py-4 text-center mt-4 rounded-md">Discover More</button>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js"></script>
+    <script>
+        $(".slick-slider").slick({
+            slidesToShow: 1,
+            infinite: true,
+            slidesToScroll: 1,
+            dots: true,
+            autoplaySpeed: 2000,
+            prevArrow: false,
+            nextArrow: false
+        });
+    </script>
+
+</body>
+
+</html>

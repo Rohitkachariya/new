@@ -1,0 +1,105 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slideshow</title>
+    <style>
+        #slideshow {
+            width: 400px;
+            height: 470px;
+            overflow: hidden;
+            border: 1px solid #ccc;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .active {
+            background-color: lightblue;
+            border: none;
+        }
+
+        .main-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sub-contanier {
+            width: 80%;
+            height: 50vh;
+            background-color: aliceblue;
+            padding: 15px;
+        }
+        .u-flex{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .right-container{
+            display: grid;
+            gap: 10px;
+        }
+        .right-container button{
+            width: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="sub-contanier">
+            <div class="u-flex">
+                <div id="slideshow" class="left-container">
+                    <img id="currentImage" src="./image.png" alt="image 1">
+                </div>
+                <div class="right-container">
+                    <button onclick="changeImage(0)" id="button0" class="active">1</button> 
+                    <button onclick="changeImage(1)" id="button1">2</button> 
+                    <button onclick="changeImage(2)" id="button2">3</button> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const images = ["image.png", "image1.png", "image2.png"];
+        let currentIndex = 0;
+        const intervalTime = 1000;
+
+        function changeImage(index) {
+            currentIndex = index;
+            const imageUrl = images[index];
+            const imgElement = document.querySelector('#currentImage');
+            imgElement.src = imageUrl;
+            // updateButtonStyles();
+        }
+       
+        function updateButtonStyles() {
+            const buttons = document.querySelectorAll('button');
+           buttons.forEach((button, index) => {
+             if (index === currentIndex) {
+                    button.classList.add('active');
+            } else {
+                    button.classList.remove('active');
+                 }
+        });
+         }
+
+        function autoChangeImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            const imageUrl = images[currentIndex];
+            const imgElement = document.querySelector('#currentImage');
+            imgElement.src = imageUrl;
+            // updateButtonStyles();
+        }
+
+        setInterval(autoChangeImage, intervalTime);
+    </script>
+</body>
+
+</html> -->
